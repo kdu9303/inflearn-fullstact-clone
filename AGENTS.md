@@ -57,3 +57,12 @@ When a change affects runtime behavior, config, or file layout:
 - Verify with the smallest useful check.
 - Prefer direct checks such as `git check-ignore`, targeted tests, or focused build commands.
 - Report anything you could not verify.
+
+## 7. Change Reporting
+
+When reporting code changes, make the before and after easy to compare.
+
+- Include a brief "Before" and "After" comparison for meaningful code edits.
+- Keep examples focused on the changed lines instead of pasting whole files.
+- Use file paths and line references when they make the comparison clearer.
+- If the change is trivial, a concise summary is enough.

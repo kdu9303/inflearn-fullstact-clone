@@ -1,0 +1,22 @@
+import * as api from "@/lib/api";
+import ClientTest from "./client-test";
+
+export default async function ApiTestPage() {
+  const apiResult = await api.getUserTest().catch((error: unknown) => {
+    if (error instanceof Error) {
+      return error.message;
+    }
+
+    return "API 요청 중 알 수 없는 오류가 발생했습니다.";
+  });
+
+  return (
+    <div className="p-8">
+      <h1>백엔드 API Test</h1>
+
+      <h2>서버 컴퓨넌트 API 테스트 결과</h2>
+      <pre>{apiResult}</pre>
+      <ClientTest />
+    </div>
+  );
+}
