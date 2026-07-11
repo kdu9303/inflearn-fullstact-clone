@@ -4,8 +4,10 @@
 // Get a free hosted Postgres database in seconds: `npx create-db`
 
 generator client {
-  provider = "prisma-client"
-  output   = "../generated/prisma"
+  provider     = "prisma-client"
+  output       = "../generated/prisma"
+  moduleFormat = "cjs"
+  importFileExtension = "js"
 }
 
 datasource db {
@@ -84,6 +86,7 @@ model Course {
   discountPrice    Int?     @map("discount_price")
   level            String   @default("BEGINEER")
   status           String   @default("DRAFT")
+  isPublished      Boolean  @default(false) @map("is_published")
   instructorId     String   @map("instructor_id")
   createdAt        DateTime @default(now()) @map("created_at")
   updatedAt        DateTime @updatedAt @map("updated_at")

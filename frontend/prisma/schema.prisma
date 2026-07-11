@@ -84,6 +84,7 @@ model Course {
   discountPrice    Int?     @map("discount_price")
   level            String   @default("BEGINEER")
   status           String   @default("DRAFT")
+  isPublished      Boolean  @default(false) @map("is_published")
   instructorId     String   @map("instructor_id")
   createdAt        DateTime @default(now()) @map("created_at")
   updatedAt        DateTime @updatedAt @map("updated_at")

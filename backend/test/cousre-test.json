@@ -1,0 +1,12 @@
+{
+  "title": "테스트 강의",
+  "slug": "test-lecture",
+  "shortDescription": "이것은 테스트 강의입니다.",
+  "description": "<div>테스트 강의</div>",
+  "thumbnailUrl": "https://cdn.inflearn.com/assets/brand/logo.png?f=avif&t=1&w=201",
+  "price": 1000,
+  "discountPrice": 900,
+  "level": "BEGINNER",
+  "isPublished": true,
+  "categoryIds": ["ff23baa8-2e29-4fe5-9342-acbfd045464f"]
+}
