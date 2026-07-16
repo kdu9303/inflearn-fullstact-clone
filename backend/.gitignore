@@ -39,6 +39,7 @@ report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
 # generated
 /generated/
+src/_gen/
 
 # typescript
 *.tsbuildinfo
