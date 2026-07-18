@@ -1,60 +1,65 @@
 "use server";
 
-import { cookies } from "next/headers";
+// import { cookies } from "next/headers";
+// import { appControllerTestUser } from "@/generated/openapi-client";
 
-const AUTH_COOKIE_NAME =
-  process.env.NODE_ENV === "production"
-    ? "__Secure-authjs.session-token"
-    : "authjs.session-token";
+// const AUTH_COOKIE_NAME =
+//   process.env.NODE_ENV === "production"
+//     ? "__Secure-authjs.session-token"
+//     : "authjs.session-token";
 
-const API_URL = process.env.API_URL || "http://localhost:8000";
+// const API_URL = process.env.API_URL || "http://localhost:8000";
 
-async function fetchApi<T>(
-  endpoint: string,
-  options: RequestInit = {},
-  token?: string,
-) {
-  const headers = {
-    "Content-Type": "application/json",
-    ...(options.headers || {}),
-  } as Record<string, string>;
+// async function fetchApi<T>(
+//   endpoint: string,
+//   options: RequestInit = {},
+//   token?: string,
+// ) {
+//   const headers = {
+//     "Content-Type": "application/json",
+//     ...(options.headers || {}),
+//   } as Record<string, string>;
 
-  if (token) {
-    headers["Authorization"] = `Bearer ${token}`;
-  }
+//   if (token) {
+//     headers["Authorization"] = `Bearer ${token}`;
+//   }
 
-  const config: RequestInit = {
-    ...options,
-    headers,
-    cache: "no-store",
-  };
+//   const config: RequestInit = {
+//     ...options,
+//     headers,
+//     cache: "no-store",
+//   };
 
-  if (options.body && typeof options.body !== "string") {
-    config.body = JSON.stringify(options.body);
-  }
+//   if (options.body && typeof options.body !== "string") {
+//     config.body = JSON.stringify(options.body);
+//   }
 
-  const response = await fetch(`${API_URL}${endpoint}`, config);
+//   const response = await fetch(`${API_URL}${endpoint}`, config);
 
-  if (!response.ok) {
-    throw new Error(`API 요청 실패: ${response.status}`);
-  }
-  if (response.status === 204) {
-    return {} as T;
-  }
+//   if (!response.ok) {
+//     throw new Error(`API 요청 실패: ${response.status}`);
+//   }
+//   if (response.status === 204) {
+//     return {} as T;
+//   }
 
-  const contentType = response.headers.get("content-type");
+//   const contentType = response.headers.get("content-type");
 
-  if (contentType && contentType.includes("application/json")) {
-    return (await response.json()) as Promise<T>;
-  } else {
-    return response.text() as Promise<T>;
-  }
-}
+//   if (contentType && contentType.includes("application/json")) {
+//     return (await response.json()) as Promise<T>;
+//   } else {
+//     return response.text() as Promise<T>;
+//   }
+// }
 
-export async function getUserTest(token?: string) {
-  // 서버 컴포넌트에서 호출된 경우
-  if (!token && typeof window === "undefined") {
-    token = (await cookies()).get(AUTH_COOKIE_NAME)?.value;
-  }
-  return fetchApi<string>("/user-test", {}, token);
-}
+// export async function getUserTest(token?: string) {
+// // 서버 컴포넌트에서 호출된 경우
+// if (!token && typeof window === "undefined") {
+//   token = (await cookies()).get(AUTH_COOKIE_NAME)?.value;
+// }
+// return fetchApi<string>("/user-test", {}, token);
+
+// const { data, error } = await appControllerTestUser();
+
+// return { data, error };
+// }
