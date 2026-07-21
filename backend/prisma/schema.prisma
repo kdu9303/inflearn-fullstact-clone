@@ -10,6 +10,11 @@ generator client {
   importFileExtension = "js"
 }
 
+generator prismaClientJs {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma-client-js"
+}
+
 generator prismaClassGenerator {
   provider               = "prisma-class-generator"
   dryRun                 = "false"
