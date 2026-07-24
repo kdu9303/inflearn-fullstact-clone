@@ -7,6 +7,7 @@ import { CoursesModule } from './courses/courses.module';
 import { PrismaModule } from './prisma/prisma.module';
 import { LecturesModule } from './lectures/lectures.module';
 import { SectionsModule } from './sections/sections.module';
+import { CategoriesModule } from './categories/categories.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { SectionsModule } from './sections/sections.module';
     PrismaModule,
     LecturesModule,
     SectionsModule,
+    CategoriesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
